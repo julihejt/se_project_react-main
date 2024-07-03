@@ -1,6 +1,6 @@
-import "./header.css";
-import logo from "../..assets/Logo.svg";
-import avatar from "../..assets/avatar.svg";
+import "./Header.css";
+import logo from "../../assets/Logo.svg";
+import avatar from "../../assets/avatar.svg";
 
 function Header() {
   return (
