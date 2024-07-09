@@ -2,9 +2,7 @@ import "./Header.css";
 import logo from "../../assets/Logo.svg";
 import avatar from "../../assets/avatar.svg";
 
-// Header component for handling add click and weather data
 function Header({ handleAddClick, weatherData }) {
-  // Get current date
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -12,35 +10,27 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      {}
-      <img className="header__logo" src={logo} />
-
-      {/* Display current date and city name */}
+      <img src={logo} alt="wtwr logo" className="header__logo" />
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-
-      {/* Button to trigger add clothes modal */}
       <button
-        className="header__add-clothes-btn"
         onClick={handleAddClick}
         type="button"
+        className="header__add-btn"
       >
-        + Add Clothes
+        + Add clothes
       </button>
-
-      {/* User information section */}
       <div className="header__user-container">
-        <p className="header__userName">Terrence Tegegne</p> {}
+        <p className="header__user-name">Terrance Tegegne</p>
         <img
           src={avatar}
-          alt="Terrence Tegegne"
-          className="header__avatar"
-        />{" "}
-        {}
+          alt="Terrance Tegegne"
+          className="header__user-avatar"
+        />
       </div>
     </header>
   );
 }
 
-export default Header; // Export Header component
+export default Header;

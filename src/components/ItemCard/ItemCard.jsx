@@ -1,15 +1,16 @@
-import "./ItemCard.css";
+import "../ItemCard/ItemCard.css";
 
 function ItemCard({ item, onCardClick }) {
-  console.log(item);
+  // Handle card click event
   const handleCardClick = () => {
     onCardClick(item);
   };
+
   return (
-    <li className="card">
-      <div className="card__name-container">
-        <h2 className="card__name">{item.name}</h2>
-      </div>
+    <li className="card-container">
+      {/* Display the item name */}
+      <h2 className="card__title">{item.name}</h2>
+      {/* Display the item image with click event handler */}
       <img
         onClick={handleCardClick}
         className="card__image"
@@ -20,4 +21,5 @@ function ItemCard({ item, onCardClick }) {
   );
 }
 
+// Export the ItemCard component
 export default ItemCard;

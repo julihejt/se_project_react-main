@@ -1,17 +1,11 @@
 import "./ModalWithForm.css";
 
-function ModalWithForm({
-  children,
-  title,
-  buttonText,
-  isOpen,
-  closeActiveModal,
-}) {
+function ModalWithForm({ children, buttonText, title, activeModal }) {
   return (
-    <div className={isOpen ? `modal modal__opened` : `modal_closed`}>
-      <div className="modal__container">
+    <div className={`modal ${activeModal == "add-garnment" && "modal_opened"}`}>
+      <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
-        <button onClick={closeActiveModal} className="modal__closer"></button>
+        <button className="modal__close" type="button"></button>
         <form className="modal__form">
           {children}
           <button type="submit" className="modal__submit">
@@ -24,4 +18,3 @@ function ModalWithForm({
 }
 
 export default ModalWithForm;
-//try onClose instead of onClick
