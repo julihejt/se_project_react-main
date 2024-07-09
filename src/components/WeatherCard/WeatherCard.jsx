@@ -2,18 +2,18 @@ import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 import "./WeatherCard.css";
 
 function WeatherCard({ weatherData }) {
-  const weatherOption = weatherOptions.find((item) => {
+  const filteredOptions = weatherOptions.filter((option) => {
     return (
-      item.day === weatherData.isDay && item.condition === weatherData.condition
+      option.day === weatherData.isDay &&
+      option.condition === weatherData.condition
     );
   });
 
-  let thisWeatherOption;
-  if (!weatherOption) {
-    thisWeatherOption =
-      defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
+  let weatherOption;
+  if (filteredOptions.length === 0) {
+    weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
   } else {
-    thisWeatherOption = weatherOption;
+    weatherOption = filteredOptions[0];
   }
 
   return (
@@ -21,7 +21,9 @@ function WeatherCard({ weatherData }) {
       <p className="weather-card__temp">{weatherData.temp.F}° F</p>
       <img
         src={weatherOption?.url}
-        alt={weatherOption?.condition}
+        alt={`Card showing ${weatherOption?.day ? "day" : "night"}time ${
+          weatherOption?.condition
+        } weather`}
         className="weather-card__image"
       />
     </section>
