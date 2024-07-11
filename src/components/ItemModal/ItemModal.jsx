@@ -1,3 +1,5 @@
+import "../ItemModal/ItemModal.css";
+
 // Define the ItemModal component
 function ItemModal({ activeModal, card, onClose }) {
   return (
