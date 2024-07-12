@@ -1,7 +1,7 @@
 import "../ItemModal/ItemModal.css";
 
 // Define the ItemModal component
-function ItemModal({ activeModal, card, onClose }) {
+function ItemModal({ activeModal, card, closeActiveModal }) {
   return (
     // Conditional class for modal based on activeModal prop
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
@@ -10,7 +10,7 @@ function ItemModal({ activeModal, card, onClose }) {
         <button
           className="modal__close"
           type="button"
-          onClick={onClose}
+          onClick={closeActiveModal}
         ></button>
         {/* Display the card image */}
         <img src={card.link} alt={card.name} className="modal__image" />

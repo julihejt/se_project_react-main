@@ -40,12 +40,15 @@ function App() {
   return (
     <div className="app">
       <div className="app__content">
-        <Header handleCardClick={handleCardClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={setActiveModal} />
+        <Header
+          handleCardClick={() => setActiveModal("add-garnment")}
+          weatherData={weatherData}
+        />
+        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
       <ModalWithForm
-        title="new garment"
+        title="New garment"
         buttonText="Add garment"
         activeModal={activeModal}
         onClose={closeActiveModal}
