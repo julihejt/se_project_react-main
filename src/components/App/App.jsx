@@ -51,7 +51,7 @@ function App() {
         title="New garment"
         buttonText="Add garment"
         activeModal={activeModal}
-        onClose={closeActiveModal}
+        closeActiveModal={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
