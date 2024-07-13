@@ -106,7 +106,7 @@ function App() {
       <ItemModal
         activeModal={activeModal}
         card={selectedCard}
-        onClose={closeActiveModal}
+        closeActiveModal={closeActiveModal}
       />
     </div>
   );

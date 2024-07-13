@@ -7,11 +7,7 @@ function ItemModal({ activeModal, card, closeActiveModal }) {
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
         {/* Close button with onClick event to trigger onClose function */}
-        <button
-          className="modal__close"
-          type="button"
-          onClick={closeActiveModal}
-        ></button>
+        <button onClick={closeActiveModal} className="modal__close"></button>
         {/* Display the card image */}
         <img src={card.link} alt={card.name} className="modal__image" />
         <div className="modal__footer">
