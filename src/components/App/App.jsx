@@ -75,7 +75,8 @@ function App() {
 
   // Function to handle toggle switch change
   const handleToggleSwitchChange = () => {
-    setCurrentTemperatureUnit((prevUnit) => (prevUnit === "C" ? "F" : "C"));
+    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
+    else setCurrentTemperatureUnit("C");
   };
 
   // useEffect to fetch weather data on component mount
