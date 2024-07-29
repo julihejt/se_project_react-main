@@ -1,6 +1,6 @@
 import "./ClothesSection.css";
-import React from "react";
 import ItemCard from "../components/ItemCard/ItemCard";
+import React from "react";
 function ClothesSection({ onCardClick, handleAddClick, clothingItems }) {
   return (
     <div className="clothes-section">
@@ -11,6 +11,7 @@ function ClothesSection({ onCardClick, handleAddClick, clothingItems }) {
           className="clothes-section__add-card-button"
           onClick={handleAddClick}
         >
+          {" "}
           + Add New
         </button>
       </div>

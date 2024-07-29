@@ -2,15 +2,28 @@ import "../Main/Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
+import { CurrentTemperatureUnitContext } from "../../context/CurrentTemperatureUnitContext";
+import { useContext } from "react";
 
-function Main({ weatherData, handleCardClick }) {
+function Main({ weatherData, handleCardClick, clothingItems }) {
+  const { CurrentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const convertTemperature = (tempF, unit) => {
+    return unit === "C" ? ((tempF - 32) * 5) / 9 : tempF;
+  };
+
+  const temperature = convertTemperature(
+    weatherData.temp.F,
+    CurrentTemperatureUnit
+  ).toFixed(1);
+
   return (
     <main className="main">
       {" "}
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp.F} &deg; F / You may want to wear:
+          Today is {temperature} &deg; {CurrentTemperatureUnit} / You may want
+          to wear:
         </p>
         <ul className="cards__list">
           {defaultClothingItems
